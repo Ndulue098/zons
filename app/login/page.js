@@ -5,10 +5,12 @@ import SocialMedia from "../_components/SocialMedia";
 import WelcomeComponent from "../_components/Welcome";
 import Flow from "../_components/Welcome";
 import Form from "../_components/Form";
+import FlowContainer from "../_components/FlowContainer";
 
 export default function Page() {
   return (
     <section className="relative flex flex-col min-h-screen bg-gradient-to-b from-[#F8F0FF] from-70% to-[#FFF5F9] to-100% text-black">
+        {/* <Flow /> */}
       {/* Header */}
       <header className="flex justify-between items-center sm:px-5 px-3 md:px-8 py-4 mb-3">
         <Image src="/zons.png" alt="Zons logo" width={100} height={70} />

@@ -2,24 +2,24 @@
 import React from "react";
 
 const social = [
-  { name: "Farcaster", color: "#5D3FD3" },
-  { name: "TikTok", color: "#010101" },
-  { name: "GitHub", color: "#181717" },
-  { name: "Facebook", color: "#1877F2" },
-  { name: "GitLab", color: "#FC6D26" },
-  { name: "Twitter", color: "#1DA1F2" },
-  { name: "Gitbucket", color: "#4183C4" },
-  { name: "Reddit", color: "#FF4500" },
-  { name: "LinkedIn", color: "#0077B5" },
-  { name: "YouTube", color: "#FF0000" },
-  { name: "Instagram", color: "#C13584" },
-  { name: "Dailymotion", color: "#0066DC" },
-  { name: "Tumblr", color: "#36465D" },
-  { name: "Pinterest", color: "#E60023" },
-  { name: "Figma", color: "#F24E1E" },
-  { name: "Threads", color: "#000000" },
-  { name: "Twitch", color: "#9146FF" },
-  { name: "Bluesky", color: "#0288D1" },
+  { name: "Farcaster", color: "#7D5FFF" },      // More vibrant purple
+  { name: "TikTok", color: "#000000" },         // Jet black (still punchy)
+  { name: "GitHub", color: "#24292E" },         // Deeper GitHub dark
+  { name: "Facebook", color: "#1877F2" },       // Already vibrant
+  { name: "GitLab", color: "#FC6D26" },         // Slightly more vivid
+  { name: "Twitter", color: "#1DA1F2" },        // Already vibrant
+  { name: "Gitbucket", color: "#47A3FF" },      // Lighter blue for vibrancy
+  { name: "Reddit", color: "#FF5700" },         // Richer orange
+  { name: "LinkedIn", color: "#0A66C2" },       // Stronger LinkedIn blue
+  { name: "YouTube", color: "#FF0000" },        // Already vibrant
+  { name: "Instagram", color: "#E1306C" },      // Vivid magenta tone
+  { name: "Dailymotion", color: "#0061FE" },    // More electric blue
+  { name: "Tumblr", color: "#35465C" },         // Slightly brighter dark blue
+  { name: "Pinterest", color: "#E60023" },      // Already strong
+  { name: "Figma", color: "#F24E1E" },          // Already vibrant
+  { name: "Threads", color: "#1C1C1C" },        // Slightly lighter black
+  { name: "Twitch", color: "#A970FF" },         // Brighter purple
+  { name: "Bluesky", color: "#00BFFF" },        // Bright sky blue
 ];
 
 function MarqueeRow({ reverse = false, duration = "20s" }) {
@@ -39,10 +39,10 @@ function MarqueeRow({ reverse = false, duration = "20s" }) {
         {items.map((item, index) => (
           <span
             key={index}
-            className="px-4 py-2 rounded text-white text-sm"
+            className="px-4 py-2 rounded-full text-white font-medium text-sm"
             style={{ backgroundColor: item.color }}
           >
-            {item.name}
+            {item.name} 
           </span>
         ))}
       </div>

@@ -3,7 +3,7 @@ import SignOutBtn from "./SignOutBtn";
 
 export default function Form() {
   return (
-    <div className="bg-white border border-gray-300 rounded-xl shadow-md px-6 py-8 max-w-md mx-auto mb-8">
+    <div className="bg-white border border-gray-300 rounded-xl px-6 py-8 max-w-md mx-auto mb-8">
       <h2 className="text-2xl font-semibold text-center mb-6">
         Login or Sign Up to Zons
       </h2>
