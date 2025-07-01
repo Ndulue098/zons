@@ -18,7 +18,9 @@ export default function Page() {
         </div>
       </div> */}
 
-      <div className="flex justify-between px-8  mb-6 ">
+      <div className="flex justify-between md:px-8  mb-6 
+      px-2 
+      ">
         <Image src="/zons.png" alt="" width={100} height={100} />
         <button className="text-base px-5 py-2.5 bg-red-500 rounded-full">
           Enter the Zon
@@ -26,7 +28,7 @@ export default function Page() {
       </div>
 
       <div className="flex flex-col mb-4 items-center justify-center max-w-3xl mx-auto  gap-2.5">
-        <h2 className="text-5xl">Bet on the Future, then Let it Fly</h2>
+        <h2 className="text-5xl text-center ">Bet on the Future, then Let it Fly</h2>
         <p className="text-base">
           Get into the zon and get started betting on trends and plays
         </p>
