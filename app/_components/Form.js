@@ -1,7 +1,7 @@
 import SignInBtn from "./SignInBtn";
 import SignOutBtn from "./SignOutBtn";
 
-export default function Form() {
+export default function Form({onOpen}) {
   return (
     <div className="bg-white border border-gray-300 rounded-xl px-6 py-8 max-w-md mx-auto mb-8">
       <h2 className="text-2xl font-semibold text-center mb-6">
@@ -15,7 +15,7 @@ export default function Form() {
           className="w-full p-3 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-400"
         />
 
-        <SignInBtn type="signin">Continue</SignInBtn>
+        <SignInBtn onOpen={onOpen} type="signin">Continue</SignInBtn>
 
         <div className="flex items-center justify-between text-sm text-gray-600">
           <p>Prefer phone number sign up?</p>

@@ -1,16 +1,15 @@
+"use client";
 import Image from "next/image";
-import SignInBtn from "../_components/SignInBtn";
-import SignOutBtn from "../_components/SignOutBtn";
-import SocialMedia from "../_components/SocialMedia";
-import WelcomeComponent from "../_components/Welcome";
-import Flow from "../_components/Welcome";
 import Form from "../_components/Form";
-import FlowContainer from "../_components/FlowContainer";
+import SocialMedia from "../_components/SocialMedia";
+import Flow from "../_components/Welcome";
+import { useState } from "react";
 
 export default function Page() {
+  const [open, setOpen] = useState(false);
   return (
     <section className="relative flex flex-col min-h-screen bg-gradient-to-b from-[#F8F0FF] from-70% to-[#FFF5F9] to-100% text-black">
-        {/* <Flow /> */}
+      {open && <Flow onOpen={setOpen} />}
       {/* Header */}
       <header className="flex justify-between items-center sm:px-5 px-3 md:px-8 py-4 mb-3">
         <Image src="/zons.png" alt="Zons logo" width={100} height={70} />
@@ -32,7 +31,7 @@ export default function Page() {
 
         {/* Form Component */}
         <div className="w-full">
-          <Form />
+          <Form onOpen={setOpen} />
         </div>
       </main>
 
@@ -42,14 +41,4 @@ export default function Page() {
       </footer>
     </section>
   );
-}
-
-{
-  /* <div className="fixed inset-0 z-30 overflow-auto bg-[#8D8D8D1A]/30 backdrop-blur-2xl rounded-xl p-5 m-5">
-        <div className="min-h-full flex items-center justify-center">
-          <div className="bg-white rounded-xl p-8 px-10 w-full max-h-[34rem] max-w-xl mx-auto shadow-lg">
-            <Flow />
-          </div>
-        </div>
-      </div> */
 }
