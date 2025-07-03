@@ -3,9 +3,9 @@ import { createContext, useContext, useState } from "react";
 
 const WelcomeContext = createContext();
 
-export default function Flow({onOpen}) {
+export default function Flow({ onOpen }) {
   const [next, setNext] = useState(0);
-  const [prog,setProg]=useState(null)
+  const [prog, setProg] = useState(null);
 
   function handleNext() {
     setNext((prev) => prev + 1);
@@ -67,42 +67,45 @@ export default function Flow({onOpen}) {
   ];
 
   return (
-    <WelcomeContext.Provider value={{ eventData, length: display.length,onOpen }}>
-      <div className="fixed inset-0 z-30 overflow-auto bg-[#8D8D8D1A]/30 backdrop-blur-2xl rounded-xl p-5 m-3">
+    <WelcomeContext.Provider
+      value={{ eventData, length: display.length, onOpen }}
+    >
+      <div className="absolute inset-0 z-30 overflow-auto bg-[#8D8D8D1A]/30 backdrop-blur-2xl rounded-xl  p-5 ">
         <div className="min-h-full flex items-center justify-center">
           <div className="bg-white relative rounded-xl p-8 px-10 w-full min-h-[22rem] max-w-xl mx-auto shadow-lg">
             <ul className="absolute right-5 top-4 flex items-center justify-center gap-1">
-                {display.map((_,i)=><Progress compLength={display.length} id={i} next={next} setProg={setProg} prog={setProg} key={i} />)}
-                
+              {display.map((_, i) => (
+                <Progress
+                  compLength={display.length}
+                  id={i}
+                  next={next}
+                  setProg={setProg}
+                  prog={setProg}
+                  key={i}
+                />
+              ))}
             </ul>
             {display[next]}
           </div>
         </div>
       </div>
-    </WelcomeContext.Provider> 
+    </WelcomeContext.Provider>
   );
 }
 
-function Progress({next,id,compLength}){
+function Progress({ next, id, compLength }) {
+  let colortag;
+  if (next === id) {
+    colortag = "w-4.5 h-2.5  border-[1px] border-[#FF1A6C]";
+  } else if (id < next) {
+    colortag = "w-3.5 h-2.5  bg-[#FF1A6C]";
+  } else {
+    colortag = "w-3.5 h-2.5 bg-[#D9D9D9]";
+  }
 
-    
-    let colortag;
-    if(next===id){
-        colortag="w-4.5 h-2.5  border-[1px] border-[#FF1A6C]"
-    }
-    else if(id<next){
-        colortag="w-3.5 h-2.5  bg-[#FF1A6C]"
-    }
-    else{
-        colortag="w-3.5 h-2.5 bg-[#D9D9D9]"
-    }
-    
-    // return <li className={`${next===id?"w-4.5 h-2.5  bg-[#FF1A6C]":"w-3.5 h-2.5 border-[1px] border-[#FF1A6C]"} rounded-full`}>
-    return <li className={`${colortag} rounded-full`}>
-
-    </li>
+  // return <li className={`${next===id?"w-4.5 h-2.5  bg-[#FF1A6C]":"w-3.5 h-2.5 border-[1px] border-[#FF1A6C]"} rounded-full`}>
+  return <li className={`${colortag} rounded-full`}></li>;
 }
-
 
 function UserName({ onNext }) {
   return (
@@ -173,7 +176,7 @@ function Motive({ onNext }) {
 }
 
 function Event({ onNext, title, event, next }) {
-  const { length,onOpen } = useContext(WelcomeContext);
+  const { length, onOpen } = useContext(WelcomeContext);
 
   return (
     <div className="w-full max-w-xl mx-auto px-2 flex flex-col">
@@ -208,9 +211,9 @@ function Event({ onNext, title, event, next }) {
         </div>
       </div>
 
-      {/* Finish button */} 
+      {/* Finish button */}
       <button
-        onClick={length === next + 1 ? ()=>onOpen(false) : onNext}
+        onClick={length === next + 1 ? () => onOpen(false) : onNext}
         className="w-full bg-[#FF1A6C] text-white py-3 rounded-full text-base font-medium  transition"
       >
         Finish
