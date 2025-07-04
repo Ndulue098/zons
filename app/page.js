@@ -31,11 +31,11 @@ export default function page() {
 
         {/* Action Buttons */}
         <div className="flex md:row-start-auto md:col-start-auto row-start-1 col-start-2 items-center gap-3 justify-end">
-          <button className="px-4 py-2 text-sm font-semibold bg-[#FF1A6C] text-white rounded-full shadow hover:bg-red-600 transition">
+          <button className="px-4 py-2 text-sm font-semibold bg-[#FF1A6C] text-white rounded-full hover:bg-red-600 transition">
             Enter the Zon
           </button> 
 
-          <div className="flex items-center gap-2 border border-gray-300 rounded-md px-2 py-1 shadow-sm">
+          <div className="flex items-center gap-2 border border-gray-300 rounded-md px-2 py-1 ">
             <div className="w-6 h-6 bg-red-300 rounded-full" />
             <span className="text-sm font-medium">sinachpat</span>
           </div>
@@ -49,7 +49,7 @@ export default function page() {
           <h2 className="text-2xl uppercase font-semibold mb-4 sm:px-2 px-3">
             Trending
           </h2>
-          <div className="border border-gray-200 rounded-xl py-3 px-2 bg-white shadow-sm">
+          <div className="border border-gray-200 rounded-xl py-3 px-2 bg-white">
             <TrendsCard />
           </div>
         </section>

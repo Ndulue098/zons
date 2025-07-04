@@ -4,11 +4,11 @@ import Image from "next/image";
 
 export default function TrendsCard() {
   return (
-    <motion.div
-      drag="x"
-      dragConstraints={{ left: -200, right: 0 }}
-      dragElastic={0.2}
-      dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
+    <div
+      // drag="x"
+      // dragConstraints={{ left: -200, right: 0 }}
+      // dragElastic={0.2}
+      // dragTransition={{ bounceStiffness: 100, bounceDamping: 10 }}
       className="flex gap-4 overflow-x-auto md:mx-4 mx-2 py-2 cursor-grab no-scrollbar active:cursor-grabbing"
     >
       {/* Example card — you can map over real data */}
@@ -41,6 +41,6 @@ export default function TrendsCard() {
           </div>
         </motion.div>
       ))}
-    </motion.div>
+    </div>
   );
 }
