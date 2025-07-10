@@ -2,7 +2,10 @@
 import ReactForm from "@/components/ReactForm";
 
 export default function AccountForm() {
-  function handleSubmit() {}
+  function handleSubmit(data){
+      console.log(data);
+      
+  }
   return (
     <div className="max-w-5xl rounded-lg flex flex-col mx-auto mt-9 border-[1px] md:p-7 p-3 border-zinc-400">
       <div className="flex border-b-[1.5px] p-2 pr-0 items-center gap-4 mb-5 justify-center ml-auto">

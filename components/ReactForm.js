@@ -121,7 +121,7 @@ export default function ReactForm({handleSubmit}) {
         </div>
         <button  type="submit" className="max-w-md mx-auto mt-4 w-full flex items-center justify-center gap-2 p-3 text-sm font-semibold bg-[#FF1A6C] text-white rounded-full hover:bg-red-600 transition">
             <UserPlusIcon/>
-            <span>Enter the Zon</span>
+            <span>Save changes</span>
         </button> 
       </form>
     </Form>

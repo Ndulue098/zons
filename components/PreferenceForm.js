@@ -51,7 +51,7 @@ export default function PreferenceForm() {
             name="email"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Email notification</FormLabel>
+                <FormLabel className="text-md">Email notification</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -68,7 +68,7 @@ export default function PreferenceForm() {
             name="sms"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">SMS notification</FormLabel>
+                <FormLabel className="text-md">SMS notification</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -85,7 +85,7 @@ export default function PreferenceForm() {
             name="telegram"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Telegram notification</FormLabel>
+                <FormLabel className="text-md">Telegram notification</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -107,7 +107,7 @@ export default function PreferenceForm() {
             name="marketUpdates"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Market Updates</FormLabel>
+                <FormLabel className="text-md">Market Updates</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -123,7 +123,7 @@ export default function PreferenceForm() {
             name="betWins"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Bet wins</FormLabel>
+                <FormLabel className="text-md">Bet wins</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -139,7 +139,7 @@ export default function PreferenceForm() {
             name="betLosses"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Bet losses</FormLabel>
+                <FormLabel className="text-md">Bet losses</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -155,7 +155,7 @@ export default function PreferenceForm() {
             name="socialActivity"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Bet/Social activity </FormLabel>
+                <FormLabel className="text-md">Bet/Social activity </FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}
@@ -171,7 +171,7 @@ export default function PreferenceForm() {
             name="walletActivity"
             render={({ field }) => (
               <FormItem className="flex items-center justify-between gap-2">
-                <FormLabel className="text-lg">Wallet activities</FormLabel>
+                <FormLabel className="text-md">Wallet activities</FormLabel>
                 <FormControl>
                   <Checkbox
                     checked={field.value}

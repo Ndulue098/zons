@@ -8,7 +8,7 @@ export default function LayoutWrapper({ children }) {
   return (
     <section
       className={`min-h-screen grid transition-all duration-300 ${
-        collapsed ? "md:grid-cols-[5rem_1fr] grid-cols-[4rem_1fr]" : "grid-cols-[16rem_1fr]"
+        collapsed ? "md:grid-cols-[5rem_1fr] grid-cols-[4rem_1fr]" : "grid-cols-[18rem_1fr]"
       }`}
     >
       <Nav />
