@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
-import Form from "../_components/Form";
-import SocialMedia from "../_components/SocialMedia";
-import Flow from "../_components/Welcome";
+import Form from "../../components/Form";
+import SocialMedia from "../../components/SocialMedia";
+import Flow from "../../components/Welcome";
 import { useState } from "react";
 
 export default function Page() {

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import TrendsCard from "./_components/TrendsCard";
-import Chellenge from "./_components/Chellenge";
-import Footer from "./_components/FooterNav";
-import FooterNav from "./_components/FooterNav";
+import TrendsCard from "../components/TrendsCard";
+import Chellenge from "../components/Chellenge";
+import Footer from "../components/FooterNav";
+import FooterNav from "../components/FooterNav";
 
 export default function page() {
   return (
