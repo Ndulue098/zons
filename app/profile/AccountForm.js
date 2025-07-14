@@ -7,16 +7,18 @@ export default function AccountForm() {
       
   }
   return (
-    <div className="max-w-5xl rounded-lg flex flex-col mx-auto mt-9 border-[1px] md:p-7 p-3 border-zinc-400">
-      <div className="flex border-b-[1.5px] p-2 pr-0 items-center gap-4 mb-5 justify-center ml-auto">
-        <div className="w-[4rem] h-[4rem] bg-red-300 rounded-full"></div>
-        <div>
-          <h2>Osinachi Patrick</h2>
-          <p>Edit profile picture </p>
-        </div>
-      </div>
+      <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-6 md:p-10 space-y-8">
 
-      <ReactForm handleSubmit={handleSubmit}/>
+    <div className="flex items-center gap-4 border-b border-zinc-300 pb-6">
+      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-300 to-red-400 shadow-inner flex items-center justify-center text-white font-bold text-lg">
+        OP
+      </div>
+      <div>
+        <h3 className="text-lg font-semibold text-gray-800">Osinachi Patrick</h3>
+        <p className="text-sm text-blue-600 hover:underline cursor-pointer">Edit profile picture</p>
+      </div>
     </div>
+      <ReactForm handleSubmit={handleSubmit}/>
+      </div>
   );
 }

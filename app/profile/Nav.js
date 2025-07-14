@@ -7,6 +7,7 @@ import { useLayout } from "@/context/ProfileContext";
 import { cn } from "@/lib/utils";
 import {
   ArrowBigLeftDash,
+  Menu,
   User,
   Shield,
   Wallet,
@@ -23,7 +24,11 @@ import {
 
 const navItems = [
   { label: "Account", href: "/profile", icon: User },
-  { label: "Security & Authentication", href: "/profile/security-authentication", icon: Shield },
+  {
+    label: "Security & Authentication",
+    href: "/profile/security-authentication",
+    icon: Shield,
+  },
   { label: "Wallet & Payment", href: "/profile/wallet-payment", icon: Wallet },
   { label: "Preferences", href: "/profile/preference", icon: Sliders },
   { label: "Logout", href: "#", icon: LogOut },
@@ -33,74 +38,142 @@ export default function Nav() {
   const pathname = usePathname();
   const { collapsed, setCollapsed } = useLayout();
   const [isMobile, setIsMobile] = useState(false);
+  const [showDrawer, setShowDrawer] = useState(false);
 
-  // Auto-collapse on mount if screen width <= 768px (md breakpoint)
+  // Track screen size
   useEffect(() => {
     const handleResize = () => {
-      const isSmall = window.innerWidth < 1024; // Tailwind lg = 1024px
+      const isSmall = window.innerWidth < 768; // Tailwind md
       setIsMobile(isSmall);
-      setCollapsed(isSmall); // force collapse on medium or below
     };
-
-    handleResize(); // run on mount
+    handleResize();
     window.addEventListener("resize", handleResize);
-
     return () => window.removeEventListener("resize", handleResize);
-  }, [setCollapsed]);
+  }, []);
+
+  // Auto-collapse for desktop view
+  useEffect(() => {
+    if (!isMobile) {
+      setCollapsed(false);
+      setShowDrawer(false);
+    } else {
+      setCollapsed(true);
+    }
+  }, [isMobile, setCollapsed]);
+
+  // Mobile drawer close on nav click
+  const handleNavClick = () => {
+    if (isMobile) setShowDrawer(false);
+  };
 
   return (
-    <aside
-      className={cn(
-        "bg-white border border-zinc-200 md:m-4 m-2 mr-0 rounded-2xl shadow-sm transition-all duration-300",
-        collapsed ? "md:w-16 w-auto px-2 py-4" : "px-4 py-6"
+    <>
+      {/* Mobile top nav toggle */}
+      {isMobile && (
+        <div className="p-3">
+          <Button
+            variant="outline"
+            className="flex items-center gap-2"
+            onClick={() => setShowDrawer(true)}
+          >
+            {/* <Menu size={18} /> */}
+            <span>Settings</span>
+            <ArrowBigLeftDash
+              className={cn("transition-transform rotate-180")}
+              size={20}
+            />
+          </Button>
+        </div>
       )}
-    >
-      <TooltipProvider>
-        <Button
-          variant="ghost"
-          onClick={() => !isMobile && setCollapsed(!collapsed)}
-          className="flex items-center gap-2 text-sm font-medium text-gray-700 mb-6 hover:bg-zinc-100 w-full justify-start"
-          disabled={isMobile}
-        >
-          <ArrowBigLeftDash
-            className={cn("transition-transform", collapsed ? "rotate-180" : "")}
-            size={20}
-          />
-          {!collapsed && <span className="text-sm font-medium">Settings</span>}
-        </Button>
 
+      {/* Main nav sidebar */}
+      <aside
+        className={cn(
+          "bg-white z-10 border border-zinc-200 rounded-r-xl shadow-sm z-50 transition-all duration-300",
+          isMobile
+            ? cn(
+                "fixed top-0 left-0 h-full w-64 p-3 py-6",
+                showDrawer ? "translate-x-0" : "-translate-x-full"
+              )
+            : collapsed
+            ? "w-16 p-4"
+            : " p-6"
+        )}
+      >
+        <div className="flex items-center justify-between mb-6">
+          {!isMobile && (
+            <Button
+              variant="ghost"
+              onClick={() => setCollapsed(!collapsed)}
+              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:bg-zinc-100"
+            >
+              <ArrowBigLeftDash
+                className={cn(
+                  "transition-transform",
+                  collapsed ? "rotate-180" : ""
+                )}
+                size={20}
+              />
+              {!collapsed && <span>Settings</span>}
+            </Button>
+          )}
+
+          {isMobile && (
+            <Button
+              variant="ghost"
+              onClick={() => setShowDrawer(false)}
+              className="mr-auto w-full text-gray-700 hover:bg-zinc-100"
+            >
+              <ArrowBigLeftDash size={20} />
+              <span>Settings</span>
+            </Button>
+          )}
+        </div>
         <nav>
           <ul className="space-y-2">
             {navItems.map(({ label, href, icon: Icon }) => (
               <li key={label}>
-                <Tooltip delayDuration={100}>
-                  <TooltipTrigger asChild>
-                    <Link
-                      href={href}
-                      className={cn(
-                        "flex items-center md:justify-start justify-center px-3 py-2 rounded-lg text-sm transition-all font-medium group",
-                        pathname === href
-                          ? "bg-[#FF1A6C] text-white"
-                          : "text-gray-700 hover:bg-zinc-100"
-                      )}
-                    >
-                      <Icon size={18} className="shrink-0 " />
-                      {!collapsed && (
-                        <span className="ml-3 truncate">{label}</span>
-                      )}
-                    </Link>
-                  </TooltipTrigger>
-                  {collapsed && (
-                    <TooltipContent side="right" className="text-xs font-medium">
-                      {label}
-                    </TooltipContent>
-                  )}
-                </Tooltip>
+                <TooltipProvider>
+                  <Tooltip delayDuration={100}>
+                    <TooltipTrigger asChild>
+                      <Link
+                        href={href}
+                        onClick={handleNavClick}
+                        className={cn(
+                          "flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all group",
+                          pathname === href
+                            ? "bg-[#FF1A6C] text-white"
+                            : "text-gray-700 hover:bg-zinc-100",
+                          collapsed && !isMobile ? "justify-center" : " gap-3"
+                        )}
+                      >
+                        <Icon size={18} className="shrink-0 " />
+                        {!collapsed && <span>{label}</span>}
+                        {showDrawer && isMobile && (
+                          <span className=" truncate">{label}</span>
+                        )}
+                      </Link>
+                    </TooltipTrigger>
+                    {collapsed && !isMobile && (
+                      <>
+                        <TooltipContent side="right">{label}</TooltipContent>
+                      </>
+                    )}
+                  </Tooltip>
+                </TooltipProvider>
               </li>
             ))}
           </ul>
         </nav>
-      </TooltipProvider>
-    </aside>
+      </aside>
+
+      {/* Backdrop for mobile drawer */}
+      {isMobile && showDrawer && (
+        <div
+          className="fixed inset-0 bg-black/40 z-40"
+          onClick={() => setShowDrawer(false)}
+        />
+      )}
+    </>
   );
 }

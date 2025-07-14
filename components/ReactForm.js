@@ -26,103 +26,109 @@ export default function ReactForm({handleSubmit}) {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)}>
-        <div className="grid md:grid-cols-2 grid-col-1 gap-4">
-          <fieldset className="flex flex-col gap-3">
-            {/* first name*/}
+        <div className="grid md:grid-cols-2 gap-6">
+          {/* Column 1 */}
+          <div className="flex flex-col gap-3">
             <FormField
-            control={form.control}
+              control={form.control}
               name="firstname"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>Frist Name</FormLabel>
-                <FormControl>
-                    <Input {...field}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
-            /> 
-            {/* user name*/}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>First Name</FormLabel>
+                  <FormControl><Input {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
             <FormField
-            control={form.control}
+              control={form.control}
               name="username"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>User Name</FormLabel>
-                <FormControl>
-                    <Input {...field}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Username</FormLabel>
+                  <FormControl><Input {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            
-            {/* email */}
             <FormField
-            control={form.control}
+              control={form.control}
               name="email"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>Email</FormLabel>
-                <FormControl>
-                    <Input {...field}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Email</FormLabel>
+                  <FormControl><Input {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-            {/* text area */}
+          </div>
+
+          {/* Column 2 */}
+          <div className="flex flex-col gap-3">
             <FormField
+              control={form.control}
+              name="lastname"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Last Name</FormLabel>
+                  <FormControl><Input {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Location</FormLabel>
+                  <FormControl><Input {...field} /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="age"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Age</FormLabel>
+                  <FormControl><Input {...field} type="number" /></FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+        </div>
+
+        {/* Bio Section */}
+        <div className="mt-6">
+          <FormField
             control={form.control}
-              name="bio"
-              render={({field}) => <FormItem rows={10} className="w-full flex-1 col-span-2 =">
+            name="bio"
+            render={({ field }) => (
+              <FormItem>
                 <FormLabel>Bio</FormLabel>
                 <FormControl>
-                    <Textarea {...field}/>
+                  <Textarea {...field} rows={5} placeholder="Tell us about yourself..." />
                 </FormControl>
-                <FormMessage/>
-              </FormItem>}
-            />
-          </fieldset>
-          <fieldset className="flex flex-col gap-3">
-            {/* last name */}
-            <FormField
-            control={form.control}
-              name="lastname"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>Last Name</FormLabel>
-                <FormControl>
-                    <Input {...field}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
-            />
-            
-            {/* location */}
-             <FormField
-             control={form.control}
-              name="location"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>Location</FormLabel>
-                <FormControl>
-                    <Input {...field}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
-            />
-            {/* age */}
-             <FormField
-             control={form.control}
-              name="age"
-              render={({field}) => <FormItem className="w-full">
-                <FormLabel>Age</FormLabel>
-                <FormControl>
-                    <Input {...field} type={"number"}></Input>
-                </FormControl>
-                <FormMessage/>
-              </FormItem>}
-            />
-
-          </fieldset>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
-        <button  type="submit" className="max-w-md mx-auto mt-4 w-full flex items-center justify-center gap-2 p-3 text-sm font-semibold bg-[#FF1A6C] text-white rounded-full hover:bg-red-600 transition">
-            <UserPlusIcon/>
-            <span>Save changes</span>
-        </button> 
+
+        {/* Submit Button */}
+        <div className="mt-8 flex justify-center">
+          <button
+            type="submit"
+            className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold rounded-full bg-[#FF1A6C] text-white hover:bg-red-600 transition"
+          >
+            <UserPlusIcon className="w-4 h-4" />
+            <span>Save Changes</span>
+          </button>
+        </div>
       </form>
     </Form>
   );
