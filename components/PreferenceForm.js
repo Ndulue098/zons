@@ -41,7 +41,7 @@ export default function PreferenceForm() {
   return (
     <Form {...form}>
       <form>
-          <FormLabel className="text-2xl font-bold text-gray-900 mb-3">
+          <FormLabel className="text-md font-bold text-gray-900 mb-3">
             Preferences
           </FormLabel>
           
@@ -98,7 +98,7 @@ export default function PreferenceForm() {
           />
         </fieldset>
         
-        <FormLabel className="text-2xl font-bold text-gray-900 mb-3">
+        <FormLabel className="text-md font-bold text-gray-900 mb-3">
               Categories
           </FormLabel>
         <fieldset className="flex flex-col gap-2 ">

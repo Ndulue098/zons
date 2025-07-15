@@ -7,7 +7,7 @@ export default function AccountForm() {
       
   }
   return (
-      <div className="rounded-2xl border border-zinc-200 bg-white shadow-sm p-6 md:p-10 space-y-8">
+      <div className="rounded-2xl border border-zinc-200 bg-white p-6 md:p-10 space-y-8">
 
     <div className="flex items-center gap-4 border-b border-zinc-300 pb-6">
       <div className="w-16 h-16 rounded-full bg-gradient-to-br from-pink-300 to-red-400 shadow-inner flex items-center justify-center text-white font-bold text-lg">

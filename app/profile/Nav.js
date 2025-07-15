@@ -89,7 +89,7 @@ export default function Nav() {
       {/* Main nav sidebar */}
       <aside
         className={cn(
-          "bg-white z-10 border border-zinc-200 rounded-r-xl shadow-sm z-50 transition-all duration-300",
+          "bg-white z-10 border border-zinc-200 rounded-r-xl  z-50 transition-all duration-300",
           isMobile
             ? cn(
                 "fixed top-0 left-0 h-full w-64 p-3 py-6",
@@ -97,15 +97,15 @@ export default function Nav() {
               )
             : collapsed
             ? "w-16 p-4"
-            : " p-6"
+            : " p-4"
         )}
       >
-        <div className="flex items-center justify-between mb-6">
+        <div className="flex  items-center justify-between mb-6">
           {!isMobile && (
             <Button
               variant="ghost"
               onClick={() => setCollapsed(!collapsed)}
-              className="flex items-center gap-2 text-sm font-medium text-gray-700 hover:bg-zinc-100"
+              className="w-full flex items-center gap-2 text-sm font-medium text-gray-700 hover:bg-zinc-100"
             >
               <ArrowBigLeftDash
                 className={cn(
@@ -114,7 +114,7 @@ export default function Nav() {
                 )}
                 size={20}
               />
-              {!collapsed && <span>Settings</span>}
+              {!collapsed && <span className="">Settings</span>}
             </Button>
           )}
 
@@ -130,7 +130,7 @@ export default function Nav() {
           )}
         </div>
         <nav>
-          <ul className="space-y-2">
+          <ul className="space-y-2 ">
             {navItems.map(({ label, href, icon: Icon }) => (
               <li key={label}>
                 <TooltipProvider>
