@@ -8,11 +8,11 @@ export default function LayoutWrapper({ children }) {
   return (
     <section
       className={`min-h-screen grid transition-all duration-300 ${
-        collapsed ? "md:grid-cols-[5rem_1fr] grid-cols-[1fr]" : "grid-cols-[18rem_1fr]"
+        collapsed ? "md:grid-cols-[5rem_1fr] grid-cols-[1fr] grid-rows-[auto_1fr]" : "grid-cols-[18rem_1fr]"
       }`}
     >
       <Nav />
-      <main className="min-h-screen w-full md:px-4 px-2 py-10">{children}</main>
+      <main className=" w-full md:px-4 px-2 py-10">{children}</main>
       <FooterNav/> 
     </section>
   );

@@ -2,8 +2,8 @@ export default function page() {
   return (
     <div className="max-w-6xl mx-auto px-2 py-8">
       {/* Top Header with Connect Wallet */}
-      <div className="flex justify-between items-center bg-white border border-zinc-200 rounded-2xl  px-6 py-4 mb-6">
-        <h1 className="text-2xl font-bold text-gray-900">Wallet & Payment</h1>
+      <div className="flex justify-between items-center bg-white rounded-2xl mb-8">
+        <h1 className="text-3xl font-bold text-gray-900">Wallet & Payment</h1>
       </div>
 
       <div className="grid gap-8 md:grid-cols-2">

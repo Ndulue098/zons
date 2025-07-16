@@ -21,6 +21,7 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
+import Image from "next/image";
 
 const navItems = [
   { label: "Account", href: "/profile", icon: User },
@@ -70,42 +71,52 @@ export default function Nav() {
     <>
       {/* Mobile top nav toggle */}
       {isMobile && (
-        <div className="p-3">
-          <Button
-            variant="outline"
-            className="flex items-center gap-2"
-            onClick={() => setShowDrawer(true)}
-          >
-            {/* <Menu size={18} /> */}
-            <span>Settings</span>
-            <ArrowBigLeftDash
-              className={cn("transition-transform rotate-180")}
-              size={20}
+        <div className="p-3 flex items-end justify-between ">
+          
+          <div onClick={() => setShowDrawer(true)}>
+            <Menu size={30} />
+          </div>
+          <div className="">
+            <Image
+              src="/zons.png"
+              alt="Zons logo"
+              width={100}
+              height={60}
+              className="object-contain mx-auto "
             />
-          </Button>
+          </div>
         </div>
       )}
 
       {/* Main nav sidebar */}
       <aside
         className={cn(
-          "bg-white z-10 border border-zinc-200 rounded-r-xl  z-50 transition-all duration-300",
+          "bg-white min-h-screen z-10 border border-zinc-200 rounded-r-xl  z-50 transition-all duration-300",
           isMobile
             ? cn(
-                "fixed top-0 left-0 h-full w-64 p-3 py-6",
+                "fixed top-0 left-0 h-full w-64 p-3 py-12",
                 showDrawer ? "translate-x-0" : "-translate-x-full"
               )
             : collapsed
-            ? "w-16 p-4"
+            ? "w-16 p-4 "
             : " p-4"
         )}
       >
-        <div className="flex  items-center justify-between mb-6">
+        {!isMobile&&<div className="">
+            <Image
+              src="/zons.png"
+              alt="Zons logo"
+              width={100}
+              height={60}
+              className="object-contain mx-auto mb-10"
+            />
+          </div>}
+        <div className="flex items-center justify-between mb-4">
           {!isMobile && (
             <Button
               variant="ghost"
               onClick={() => setCollapsed(!collapsed)}
-              className="w-full flex items-center gap-2 text-sm font-medium text-gray-700 hover:bg-zinc-100"
+              className="flex items-center justify-start w-full gap-2 text-sm font-medium text-gray-700 hover:bg-zinc-100"
             >
               <ArrowBigLeftDash
                 className={cn(
@@ -122,7 +133,7 @@ export default function Nav() {
             <Button
               variant="ghost"
               onClick={() => setShowDrawer(false)}
-              className="mr-auto w-full text-gray-700 hover:bg-zinc-100"
+              className="flex items-center justify-start w-full text-gray-700 hover:bg-zinc-100"
             >
               <ArrowBigLeftDash size={20} />
               <span>Settings</span>
